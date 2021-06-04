@@ -1,0 +1,69 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+
+autonumber
+
+participant 用户 as A
+participant 商户系统 as B
+participant 支付宝 as C
+
+alt 支付流程
+else 支付接口
+A -> B: 下单
+B -> C: 调用alipay.trade.page.pay,发起支付请求
+A -> A: 用户输入用户名、用户密码
+A -> C: 登录
+A -> A: 选择支付渠道、输入支付密码
+A -> C: 确认支付
+B <- C: get请求returnUrl，返回同步返回参数,同步请求的加签和验证签名回调的验证一定要验证
+group sd 支付是否成功以异步通知为准
+B <- C: post请求notifyUrl，返回异步通知参数,并确保可接受的异步通知是支付宝发出的回调请求的返回\n一般情况下是在25小时内完成8次通知间隔频率为4m、10m、10m、1h、2h、6h、15h）\n接收到异步通知并验签通过后，请务必核对通知中的 app_id、out_trade_no、total_amount 等参数值是否与请求中的一致，\n并根据 trade_status 进行后续业务处理。
+note over B,C
+请参考：https://opendocs.alipay.com/open/270/105902#s7
+注意：
+异步返回结果的验签
+第一步： 在通知返回参数列表中，除去 sign、sign_type 两个参数外，凡是通知返回回来的参数皆是待验签的参数。
+第二步： 将剩下参数进行 url_decode，然后进行字典排序，组成字符串，得到待签名字符串：
+第三步： 将签名参数（sign）使用 base64 解码为字节码串。
+第四步： 使用 RSA 的验签方法，通过签名字符串、签名参数（经过 base64 解码）及支付宝公钥验证签名。
+第五步：需要严格按照如下描述校验通知数据的正确性：
+1.商户需要验证该通知数据中的 out_trade_no 是否为商户系统中创建的订单号;
+2.判断 total_amount 是否确实为该订单的实际金额（即商户订单创建时的金额;
+3.校验通知中的 seller_id（或者 seller_email) 是否为 out_trade_no
+这笔单据的对应的操作方(有的时候，一个商户可能有多个 seller_id/seller_email);
+在支付宝端，partnerId 与 out_trade_no唯一对应一笔单据，商户端保证不同次支付out_trade_no不可重复；
+若重复，支付宝会关联到原单据，基本信息一致的情况下会以原单据为准进行支付。
+4.验证 app_id 是否为该商户本身;
+end note
+B --> C: 返回支付通知接收情况()，接收成功返回中必须有success
+end
+
+group sd 支付是否成功以查询接口返回为准
+B -> C: 如果异步通知未成功，xxl job定时刷表，\n调用alipay.trade.query查看交易状态
+B <-- C: 返回交易信息，同步商户系统订单支付状态
+end
+
+else 退款接口
+A -> B: 用户或商户想退款
+B -> C: 调用alipay.trade.refund发起退款请求
+B <-- C: 返回退款结果
+B -> C: 调用alipay.trade.fastpay.refund.query退款查询
+B <-- C: 返回退款查询结果
+note over B,C
+若退款接口由于网络等原因返回异常，商户可调用退款查询接口
+ alipay.trade.fastpay.refund.query查询指定交易的退款信息。
+支付宝退款支持单笔交易分多次退款，
+多次退款需要提交原支付订单的商户订单号和设置不同的退款单号。
+注意：
+交易超过约定时间（签约时设置的可退款时间）的订单无法进行退款。
+一笔退款失败后重新提交，要采用原来的退款单号。
+总退款金额不能超过用户实际支付金额。
+退款信息以退款接口同步返回或者退款查询接口 alipay.trade.fastpay.refund.query
+ （统一收单交易退款查询）为准。
+end note
+
+else 交易关闭接口
+B -> C: 调用alipay.trade.close关闭交易
+B <-- C: 返回
+end
+@enduml

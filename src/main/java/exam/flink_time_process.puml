@@ -1,0 +1,34 @@
+@startuml
+node "log Server" as a
+database "数据库" as b
+node "flume" as c
+node "canal/maxwell" as d
+database "       ODS\nKafka/Pulsar" as e
+file "HDFS" as f
+node "Spark Streaming/Flink" as g
+file "HDFS" as h
+database "       DWD\nKafka/Pulsar" as i
+database "       DIM\nMysql/Redis" as j
+node "Spark Streaming/Flink" as k
+database "       DWS\nKafka/Pulsar" as l
+file "HDFS" as m
+database "       OLAP\n(Druid/Kylin\n/Presto/Impala\n/SparkSQL/ES\n/ClinkHouse)" as n
+node "hue/superset可视化工具" as o
+node "Web Server" as p
+a --> c
+b --> d
+c --> e
+d --> e
+e --> f
+e --> g
+g --> i
+i --> h
+i --> k
+g --> j
+k --> j
+k --> l
+l --> m
+l --> n
+n --> o
+n --> p
+@enduml

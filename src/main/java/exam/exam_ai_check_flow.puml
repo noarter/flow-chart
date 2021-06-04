@@ -1,0 +1,76 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+
+autonumber
+
+participant Web as A
+participant 考试系统 as B
+participant 声网 as C
+participant 腾讯云 as D
+participant 七牛云 as E
+
+group  AI反作弊流程
+group 考试之前设备检测
+A -> A: 设备检测（操作系统、浏览器版本、网络环境、摄像头、麦克风）
+A -> B: 上传当前用户设备检测信息
+
+A -> A: 设备检测（操作系统、浏览器版本、网络环境、摄像头、麦克风）
+A -> B: 上传当前用户设备检测信息
+end
+
+group 进入考试身份核验
+A -> B: 面对摄像头拍一张照片进行人脸识别
+B -> D: 调用腾讯云人脸比对接口
+B <-- D: 返回人脸比对结果
+A <-- B: 返回人脸识别结果
+
+A -> E: 如果身份核验不通过，录制一段视频上传到七牛云存储返回存储链接
+A -> B: 将返回的视频链接存储到考试系统
+A <-- B: 后台审核上传的视频记录，返回审核记录，审核不成功，当前考生无法进入考试
+end
+
+group 考试中反作弊监控
+loop
+A -> A: 切屏异常，并提示发现切屏异常
+A -> B: 上报切屏异常，保存到考试系统，后期作为判断是否作弊依据
+end
+
+group 获取声网录制token
+A -> B: 进入考试，获取录制考试过程需要的token（需要借助声网实现）
+B -> C: 通过声网密钥获取声网token
+B <-- C: 返回声网token
+A <-- B: 返回声网录制视频token
+end
+
+loop
+A -> B: 获取录制状态
+B -> C: 录制进行中query
+B <-- C:  返回索引文件名和录制状态
+A <-- B: 返回录制状态
+
+alt 根据录制状态判断是否需要重新录制
+else 录制成功
+    loop
+        A -> E: 每3-5分钟抓取录制中的一张图片，上传到七牛云, 返回对应图片存储的链接地址
+        A <-- E: 返回对应图片存储的链接地址
+        A -> B: 将抓取的图片存入到考试系统
+        B -> D: 调用腾讯云人脸识别接口，返回人脸识别结果
+        B <-- D: 返回人脸识别结果
+        A <-- B: 返回人脸识别结果，如果有作弊嫌疑，就提示当前考生
+    end
+else 录制失败
+    loop
+    A -> B: 开始录制考试过程视频
+    B -> C: acquire
+    C -> E: 配置七牛云存储相关参数，并将考试过程录制的视频上传到七牛云
+    B <-- C: 返回resourceID
+    B -> C: start
+    B <-- C: 返回录制ID
+    A <-- B: 返回录制ID
+    end
+end
+end
+end
+end
+
+@enduml

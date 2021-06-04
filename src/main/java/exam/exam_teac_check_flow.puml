@@ -1,0 +1,20 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+
+autonumber
+participant web as A
+participant 考试系统 as B
+participant redis as C
+
+group 阅卷流程
+A -> B: 开始阅卷分配阅卷任务量
+B -> C: 将所有阅卷的总任务量放入redis，\n{"exam-考试ID":[{"ka考生答题记录ID":"考生题答题需要阅的评次"}]}，\n每一题对应的考生答题记录存入redis，\n{"exam-考试ID:paper-试题ID:question-题目ID":["考生答题记录ID"]}
+A -> B: 阅卷老师取阅卷题
+B -> C: 老师阅卷某一题学生答题记录与阅卷任务中某一题对应的考生\n答题记录做差集得到这一题未阅卷的学生答题记录
+B <-- C: 得到未阅卷的学生答题记录集合
+A <-- B: 通过未阅卷的学生答题记录集合结合学生\n某场考试的答题需要阅卷的评次，\n过滤掉需要阅卷评次小于等于0的数据，\n然后从得到的集合中取出一条未阅卷的记录
+A -> B: 开始阅卷取出的题目
+B -> C: 阅卷完成更新redis对应的题目需要阅卷的次数减一\n对应的老师阅卷记录存入redis，\n{"exam-考试ID:check-userId-老师ID":[阅卷记录ID]}
+A <-- B: 返回阅卷成功
+end
+@enduml

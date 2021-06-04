@@ -1,0 +1,31 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+
+autonumber
+participant 考试系统web as A
+participant "考试系统 server" as B
+participant "c++ web" as C
+participant "c++ server" as D
+
+
+group 考生端
+A -> B: 点击C++操作题进入C++工具前，从考试系统server获取当前c++操作题考试示例代码
+A <-- B: 返回C++示例代码
+A -> C: 点击进入C++操作题进入iframe嵌入的C++界面，将返回的C++示例代码加载到C++界面的代码区域
+C -> D: 运行，在结果区查看运行结果，或者在运行结果进行交互输入，查看结果
+C -> D: 格式刷
+C <-- D: 返回格式之后的C++代码
+C -> D: 保存
+C <-- D: 返回保存结果
+C -> B: 将保存返回的结果,保存的C++代码保存到考试系统
+end
+
+group 阅卷端
+A -> B: 点击C++操作题进入C++工具前，从考试系统server获取当前c++操作题考试示例代码
+A <-- B: 返回C++示例代码
+A -> C: 点击进入C++操作题进入iframe嵌入的C++界面，将返回的C++示例代码加载到C++界面的代码区域
+C -> D: 运行，在结果区查看运行结果，或者在运行结果进行交互输入，查看结果
+C -> D: 格式刷
+C <-- D: 返回格式之后的C++代码
+end
+@enduml
