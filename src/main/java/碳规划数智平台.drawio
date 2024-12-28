@@ -110,13 +110,91 @@
           <mxGeometry x="661.5" y="649" width="93" height="38" as="geometry" />
         </mxCell>
         <mxCell id="ElIMg1iqDrONn8TYl1Ng-49" value="" style="rounded=0;whiteSpace=wrap;html=1;dashed=1;" vertex="1" parent="1">
-          <mxGeometry x="356" y="459" width="109" height="172" as="geometry" />
+          <mxGeometry x="356" y="459" width="122" height="172" as="geometry" />
         </mxCell>
         <mxCell id="ElIMg1iqDrONn8TYl1Ng-50" value="" style="rounded=0;whiteSpace=wrap;html=1;dashed=1;" vertex="1" parent="1">
-          <mxGeometry x="473" y="459" width="237" height="172" as="geometry" />
+          <mxGeometry x="486" y="459" width="237" height="172" as="geometry" />
         </mxCell>
         <mxCell id="ElIMg1iqDrONn8TYl1Ng-51" value="更&lt;div&gt;多&lt;/div&gt;&lt;div&gt;生&lt;/div&gt;&lt;div&gt;态&lt;/div&gt;&lt;div&gt;应&lt;/div&gt;&lt;div&gt;用&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;dashed=1;fillColor=#dae8fc;strokeColor=none;" vertex="1" parent="1">
-          <mxGeometry x="718" y="459" width="49" height="172" as="geometry" />
+          <mxGeometry x="730" y="459" width="37" height="172" as="geometry" />
+        </mxCell>
+        <mxCell id="ElIMg1iqDrONn8TYl1Ng-52" value="数字化-基础能碳管控" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="170" y="459" width="127" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="ElIMg1iqDrONn8TYl1Ng-53" value="知识化-场景能碳分析" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="354" y="456" width="127" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="ElIMg1iqDrONn8TYl1Ng-54" value="智能化-场景数据智能" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="542" y="456" width="127" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="ElIMg1iqDrONn8TYl1Ng-55" value="综合能源管控" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=none;" vertex="1" parent="1">
+          <mxGeometry x="128" y="491" width="104" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="ElIMg1iqDrONn8TYl1Ng-56" value="综合碳排统计" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=none;" vertex="1" parent="1">
+          <mxGeometry x="237" y="491" width="104" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="ElIMg1iqDrONn8TYl1Ng-57" value="深度用能分析" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=none;" vertex="1" parent="1">
+          <mxGeometry x="128" y="528" width="104" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="ElIMg1iqDrONn8TYl1Ng-58" value="多维减碳分析" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=none;" vertex="1" parent="1">
+          <mxGeometry x="237" y="528" width="104" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="ElIMg1iqDrONn8TYl1Ng-59" value="能源报表服务" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=none;" vertex="1" parent="1">
+          <mxGeometry x="128" y="565" width="104" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="ElIMg1iqDrONn8TYl1Ng-60" value="碳排核查认证" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=none;" vertex="1" parent="1">
+          <mxGeometry x="237" y="565" width="104" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="ElIMg1iqDrONn8TYl1Ng-61" value="碳中和推演分析" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=none;" vertex="1" parent="1">
+          <mxGeometry x="128" y="599" width="104" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="ElIMg1iqDrONn8TYl1Ng-62" value="碳资产管理&amp;amp;交易" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=none;" vertex="1" parent="1">
+          <mxGeometry x="237" y="599" width="104" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="ElIMg1iqDrONn8TYl1Ng-63" value="热网调度模型" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=none;" vertex="1" parent="1">
+          <mxGeometry x="499" y="491" width="104" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="ElIMg1iqDrONn8TYl1Ng-64" value="暖通智控模型" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=none;" vertex="1" parent="1">
+          <mxGeometry x="608" y="491" width="104" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="ElIMg1iqDrONn8TYl1Ng-65" value="新能源功率预测" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=none;" vertex="1" parent="1">
+          <mxGeometry x="499" y="528" width="104" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="ElIMg1iqDrONn8TYl1Ng-66" value="微网协同优化" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=none;" vertex="1" parent="1">
+          <mxGeometry x="608" y="528" width="104" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="ElIMg1iqDrONn8TYl1Ng-67" value="建筑用能负荷预测" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=none;" vertex="1" parent="1">
+          <mxGeometry x="499" y="565" width="104" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="ElIMg1iqDrONn8TYl1Ng-68" value="碳排放预测" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=none;" vertex="1" parent="1">
+          <mxGeometry x="608" y="565" width="104" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="ElIMg1iqDrONn8TYl1Ng-69" value="工业蒸汽流量优化" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=none;" vertex="1" parent="1">
+          <mxGeometry x="499" y="599" width="104" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="ElIMg1iqDrONn8TYl1Ng-70" value="碳减排预测" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=none;" vertex="1" parent="1">
+          <mxGeometry x="608" y="599" width="104" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="ElIMg1iqDrONn8TYl1Ng-72" value="工业产线" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=none;" vertex="1" parent="1">
+          <mxGeometry x="359" y="491" width="55" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="ElIMg1iqDrONn8TYl1Ng-73" value="数据中心" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=none;" vertex="1" parent="1">
+          <mxGeometry x="418" y="491" width="57" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="ElIMg1iqDrONn8TYl1Ng-74" value="办公楼" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=none;" vertex="1" parent="1">
+          <mxGeometry x="359" y="528" width="55" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="ElIMg1iqDrONn8TYl1Ng-75" value="商超" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=none;" vertex="1" parent="1">
+          <mxGeometry x="418" y="528" width="57" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="ElIMg1iqDrONn8TYl1Ng-76" value="学校" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=none;" vertex="1" parent="1">
+          <mxGeometry x="359" y="565" width="55" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="ElIMg1iqDrONn8TYl1Ng-77" value="风光储" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=none;" vertex="1" parent="1">
+          <mxGeometry x="418" y="565" width="57" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="ElIMg1iqDrONn8TYl1Ng-78" value="城市/园区" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=none;" vertex="1" parent="1">
+          <mxGeometry x="359" y="599" width="116" height="26" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
